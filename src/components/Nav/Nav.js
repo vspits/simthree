@@ -9,12 +9,12 @@ function Nav(props){
     } else {
         return (
             <div className='Nav'>
-                Nav
+                <p>Nav</p>
+                <img src={profile_pic} alt='profilepic'/>
+                <p>{username}</p>
                 <Link to='/dashboard'><button>HOME</button></Link>
                 <Link to='/new'><button>NEW POST</button></Link>
                 <Link to='/'><button>LOGOUT</button></Link>
-                <img src={profile_pic} alt='profilepic'/>
-                <p>{username}</p>
             </div>
         )
     }
@@ -27,4 +27,4 @@ const mapStateToProps = reduxState => {
     }
 }
 
-export default connect(mapStateToProps)(withRouter(Nav))
+export default withRouter(connect(mapStateToProps)(Nav))

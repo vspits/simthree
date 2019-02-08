@@ -57,5 +57,15 @@ module.exports = {
             res.sendStatus(401)
         }
         
+    },
+    getPosts: (req, res, next) => {
+
+        const { posts } = req.session
+        if(posts){
+            res.status(200).send(posts)
+        } else {
+            res.send('Wow, such empty!')
+        }
+
     }
 }

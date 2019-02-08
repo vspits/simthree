@@ -1,32 +1,34 @@
-// const initialState = {
-
-// }
-
-
-// // // // // // CONSTANTS // // // // //
-
-// const UPDATE_ = 'UPDATE_'
+const initialState = {
+    id: 0,
+    username: '',
+    profile_pic: ''
+}
 
 
-// // // // // // ACTION BUILDERS // // // // //
+// // // // // CONSTANTS // // // // //
 
-// export function update(){
-//     return {
-//         type: ,
-//         payload:
-//     }
-// }
+const UPDATE_USER = 'UPDATE_USER'
 
 
-// // // // // // REDUCER SWITCH FUNCTION // // // // //
+// // // // // ACTION BUILDERS // // // // //
 
-// export default function reducer(state = initialState, action){
-//     const { type, payload } = action
-//     switch(type){
-//         case UPDATE_:
-//             const {  } = payload
-//             return {...state, , , }
-//         default:
-//             return state
-//     }
-// }
+export function updateUser(userObj){
+    return {
+        type: UPDATE_USER,
+        payload: userObj
+    }
+}
+
+
+// // // // // REDUCER SWITCH FUNCTION // // // // //
+
+export default function reducer(state = initialState, action){
+    const { type, payload } = action
+    switch(type){
+        case UPDATE_USER:
+            const { id, username, profile_pic } = payload
+            return { ...state, id, username, profile_pic }
+        default:
+            return state
+    }
+}
